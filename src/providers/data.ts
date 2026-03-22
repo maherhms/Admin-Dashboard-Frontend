@@ -1,7 +1,7 @@
 import { createSimpleRestDataProvider } from "@refinedev/rest/simple-rest";
 import { API_URL } from "./constants";
 import {BaseRecord, DataProvider, GetListParams, GetListResponse} from "@refinedev/core";
-import {MOCK_SUBJECTS} from "@/constants/moch-data.ts";
+import {MOCK_SUBJECTS} from "@/constants/mock-data.ts";
 
 /*export const { dataProvider, kyInstance } = createSimpleRestDataProvider({
   apiURL: API_URL,
