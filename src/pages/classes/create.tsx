@@ -80,7 +80,7 @@ const Create = () => {
 
     const bannerPublicId = form.watch("bannerCldPubId");
 
-    const setBannerImage = (file , field) => {
+    const setBannerImage = (file : any , field : any) => {
         if(file){
             field.onChange(file.url);
             form.setValue('bannerCldPubId', file.publicId, {
@@ -131,7 +131,7 @@ const Create = () => {
                                             <FormControl>
                                                 <UploadWidget
                                                     value={field.value ? {url : field.value , publicId : bannerPublicId ?? ""} : null}
-                                                    onChange={(file : any , field : any) => setBannerImage(file,field)}
+                                                    onChange={(file : any) => setBannerImage(file,field)}
                                                 />
                                             </FormControl>
                                             <FormMessage className="text-destructive text-sm"/>

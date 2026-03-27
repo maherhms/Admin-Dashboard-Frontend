@@ -3,7 +3,13 @@ import {UploadWidgetValue} from "@/types";
 import {UploadCloudIcon} from "lucide-react";
 import {CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET} from "@/constants";
 
-function UploadWidget({value = null , onChange , disabled = false}) {
+type UploadWidgetProps = {
+      value?: UploadWidgetValue | null;
+      onChange?: (value: UploadWidgetValue | null) => void;
+      disabled?: boolean;
+    };
+
+function UploadWidget({ value = null, onChange, disabled = false }: UploadWidgetProps) {
     const widgetRef = useRef<CloudinaryWidget | null>(null);
     const onChangeRef = useRef(onChange);
 
@@ -66,13 +72,23 @@ function UploadWidget({value = null , onChange , disabled = false}) {
         if(!deleteToken) return;
         setIsRemoving(true);
         try {
-            const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/delete_by_token?token=${deleteToken}`);
-            if(response.ok) {
-                setPreview(null);
-                setDeleteToken(null);
-                onChangeRef.current?.(null);
-            }
-        } catch (error) {}
+            const response = await fetch(
+                `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/delete_by_token`,
+                {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({ token: deleteToken }),
+                }
+            );
+            if (!response.ok) throw new Error('Failed to delete Cloudinary asset');
+            setPreview(null);
+            setDeleteToken(null);
+            onChangeRef.current?.(null);
+        } catch (error) {
+            console.error('Cloudinary delete_by_token failed', error);
+        } finally {
+            setIsRemoving(false);
+        }
     }
 
     return (
@@ -81,18 +97,19 @@ function UploadWidget({value = null , onChange , disabled = false}) {
                 <div className="upload-preview">
                     <img src={preview.url} alt="Uploaded file" className="w-full h-auto rounded-md object-cover"/>
                     <div className="upload-actions">
-                        <button onClick={openWidget} className="upload-action">Change</button>
+                        <button type="button" onClick={openWidget} className="upload-action">Change</button>
                         {deleteToken && (
-                            <button onClick={removeFromCloudinary} className="upload-action">Remove</button>
+                            <button type="button" onClick={removeFromCloudinary} className="upload-action">Remove</button>
                         )}
                     </div>
                 </div>
 
             ):
-                <div className="upload-dropzone" role="button" tabIndex={0}
+                <div className="upload-dropzone" role="button" aria-disabled={disabled} tabIndex={disabled ? -1 : 0}
                      onClick={openWidget}
                      onKeyDown={(event) => {
-                         if(event.key === 'Enter') {
+                         if(disabled) return;
+                         if(event.key === 'Enter' || event.key === ' ') {
                              event.preventDefault();
                              openWidget();
                          }
