@@ -38,7 +38,7 @@ Frontend for a university admin dashboard. Allows admins, teachers, and students
 
 Custom Refine data provider translates `useTable` filters and pagination into backend query params:
 
-```
+```text
 useTable filters → buildQueryParams → GET /api/subjects?search=math&department=CS&page=1&limit=10
 ```
 
@@ -83,10 +83,11 @@ npm run build
 
 → [Admin-Dashboard-Backend](https://github.com/maherhms/Admin-Dashboard-Backend)
 
-## License
+## Release Notes 0.3.2
+### New Features
 
-MIT
-
+- Class creation form now dynamically loads available subjects and teachers from the backend instead of using static lists.
+- Form submissions now integrate with the backend API for creating classes.
 ## Release Notes 0.2.3
 ### New Features
 - Introduced user roles system (Student, Teacher, Admin)
