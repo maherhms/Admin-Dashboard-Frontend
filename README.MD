@@ -111,6 +111,11 @@ npm run build
 
 → [Admin-Dashboard-Backend](https://github.com/maherhms/Admin-Dashboard-Backend)
 
+## Release Notes 0.4
+### New Features
+
+- Integrated analytics tracking to monitor user interactions and behavior, providing detailed insights into application usage patterns and engagement metrics.
+- Enhanced routing configuration to improve single-page application navigation experience and ensure seamless request handling across all application routes.
 ## Release Notes 0.3.2
 ### New Features
 
