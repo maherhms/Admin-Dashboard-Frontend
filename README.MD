@@ -16,6 +16,34 @@ Frontend for a university admin dashboard. Allows admins, teachers, and students
 | Image Upload | Cloudinary Upload Widget |
 | Theme | Dark / Light mode support |
 
+```mermaid
+sequenceDiagram
+participant User as User
+participant Form as Create Form
+participant Refine as Refine Hooks
+participant Provider as Data Provider
+participant Backend as Backend API
+
+    User->>Form: Open create class page
+    Form->>Refine: useList("subjects")
+    Form->>Refine: useList("users", filters: role=teacher)
+    Refine->>Provider: getList("subjects")
+    Refine->>Provider: getList("users")
+    Provider->>Backend: GET /subjects?... /users?role=teacher&...
+    Backend-->>Provider: list responses
+    Provider-->>Refine: lists (subjects, teachers)
+    Refine-->>Form: options rendered (selects enabled)
+
+    User->>Form: Fill and submit form
+    Form->>Refine: onFinish(formValues)
+    Refine->>Provider: create("classes", formValues)
+    Provider->>Backend: POST /classes { ...formValues }
+    Backend-->>Provider: created resource
+    Provider-->>Refine: create response (data)
+    Refine-->>Form: success (navigate/confirm)
+```
+
+
 ## Features
 
 **Subjects**
@@ -83,6 +111,11 @@ npm run build
 
 → [Admin-Dashboard-Backend](https://github.com/maherhms/Admin-Dashboard-Backend)
 
+## Release Notes 0.4
+### New Features
+
+- Integrated analytics tracking to monitor user interactions and behavior, providing detailed insights into application usage patterns and engagement metrics.
+- Enhanced routing configuration to improve single-page application navigation experience and ensure seamless request handling across all application routes.
 ## Release Notes 0.3.2
 ### New Features
 
