@@ -111,6 +111,12 @@ npm run build
 
 → [Admin-Dashboard-Backend](https://github.com/maherhms/Admin-Dashboard-Backend)
 
+## Release Notes 0.5
+### New Features
+
+- View detailed class information including instructor, subject, and department details
+- Class pages now display banners with instructor names and optimized image delivery
+"Join Class" call-to-action added to class detail pages
 ## Release Notes 0.4
 ### New Features
 
