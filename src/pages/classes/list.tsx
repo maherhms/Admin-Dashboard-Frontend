@@ -105,7 +105,7 @@ const ClassesList = () => {
             size: 140,
             header: () => <p className="column-title">Details</p>,
             cell: ({ row }) => <ShowButton resource="classes" recordItemId={row.original.id} variant="outline" size="sm">View</ShowButton>
-        }
+        },
     ], []);
 
     const classTable = useTable<ClassDetails>({
