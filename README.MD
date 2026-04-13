@@ -16,6 +16,14 @@ Frontend for a university admin dashboard. Allows admins, teachers, and students
 | Image Upload | Cloudinary Upload Widget |
 | Theme | Dark / Light mode support |
 
+<p align="center">
+  <img src="public/Screenshot 2026-04-13 121316.png" alt="Projects section" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121327.png" alt="Projects section" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121336.png" alt="AI Rendered floor plan" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121343.png" alt="AI Rendered floor plan" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121354.png" alt="AI Rendered floor plan" width="45%" />
+</p>
+
 ```mermaid
 sequenceDiagram
 participant User as User
@@ -110,6 +118,13 @@ npm run build
 ## Backend
 
 → [Admin-Dashboard-Backend](https://github.com/maherhms/Admin-Dashboard-Backend)
+
+## Release Notes 0.6.2
+### New Features
+
+- Dashboard now displays comprehensive KPI cards, charts, and data visualizations including user breakdown, subject and class metrics, newest lists, and department/subject rankings
+- Create Subject page with form validation and submission workflow
+- Subject detail view with overview card, department information, and paginated tables for related classes, teachers, and students
 
 ## Release Notes 0.5
 ### New Features
