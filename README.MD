@@ -119,6 +119,13 @@ npm run build
 
 → [Admin-Dashboard-Backend](https://github.com/maherhms/Admin-Dashboard-Backend)
 
+## Release Notes 0.6.2
+### New Features
+
+- Dashboard now displays comprehensive KPI cards, charts, and data visualizations including user breakdown, subject and class metrics, newest lists, and department/subject rankings
+- Create Subject page with form validation and submission workflow
+- Subject detail view with overview card, department information, and paginated tables for related classes, teachers, and students
+
 ## Release Notes 0.5
 ### New Features
 
