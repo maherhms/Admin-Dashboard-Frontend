@@ -16,6 +16,14 @@ Frontend for a university admin dashboard. Allows admins, teachers, and students
 | Image Upload | Cloudinary Upload Widget |
 | Theme | Dark / Light mode support |
 
+<p align="center">
+  <img src="public/Screenshot 2026-04-13 121316.png" alt="Projects section" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121327.png" alt="Projects section" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121336.png" alt="AI Rendered floor plan" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121343.png" alt="AI Rendered floor plan" width="45%" />
+  <img src="public/Screenshot 2026-04-13 121354.png" alt="AI Rendered floor plan" width="45%" />
+</p>
+
 ```mermaid
 sequenceDiagram
 participant User as User
